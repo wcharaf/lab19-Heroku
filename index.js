@@ -1,3 +1,4 @@
+var cool = require('nameless-ravine-77108');
 var express = require('express');
 var lyrics = require('./lyrics');
 var app = express();
@@ -11,6 +12,11 @@ app.get('/', function (req, res) {
 app.get('/api', function (req, res) {
   res.send(lyrics[Math.floor(Math.random() * lyrics.length)]);
 });
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
+
 
 var server = app.listen(3000, function () {
   var host = server.address().address;
